@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from 'react-i18next';
 
 interface EcosystemPillarProps {
   id: string;
@@ -26,6 +27,7 @@ const EcosystemPillar: React.FC<EcosystemPillarProps> = ({
   delay = 0,
 }) => {
   const isMobile = useIsMobile();
+  const { t } = useTranslation(); // Add the translation hook
   const isReversed = imagePosition === 'right' && !isMobile;
   
   // Get SVG illustration based on id
@@ -160,3 +162,4 @@ const EcosystemPillar: React.FC<EcosystemPillarProps> = ({
 };
 
 export default EcosystemPillar;
+
