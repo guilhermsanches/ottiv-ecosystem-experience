@@ -42,7 +42,8 @@ const resources = {
           title: 'FLOW',
           subtitle: 'Otimização de Fluxo de Trabalho',
           description: 'OTTIV FLOW otimiza processos de negócios através de automação inteligente, design de fluxo de trabalho personalizado e ferramentas de gestão integradas que aumentam a eficiência e produtividade.'
-        }
+        },
+        learnMore: 'Saiba Mais'
       },
       testimonials: {
         title: 'O Que Nossos Clientes Dizem',
@@ -116,7 +117,8 @@ const resources = {
           title: 'FLOW',
           subtitle: 'Optimización de Flujo de Trabajo',
           description: 'OTTIV FLOW optimiza los procesos empresariales a través de la automatización inteligente, el diseño de flujo de trabajo personalizado y herramientas de gestión integradas que aumentan la eficiencia y la productividad.'
-        }
+        },
+        learnMore: 'Saber Más'
       },
       testimonials: {
         title: 'Lo Que Dicen Nuestros Clientes',

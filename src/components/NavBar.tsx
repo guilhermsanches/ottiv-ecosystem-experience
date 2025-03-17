@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-3 bg-white/90 shadow-md backdrop-blur-lg' : 'py-6 bg-transparent'
+        isScrolled || isMenuOpen ? 'py-3 bg-white/95 shadow-md backdrop-blur-lg' : 'py-6 bg-white/80 backdrop-blur-md md:bg-transparent'
       }`}
     >
       <div className="ottiv-container flex items-center justify-between">
@@ -65,7 +65,7 @@ const NavBar: React.FC = () => {
               <Globe size={20} className="mr-1" />
               <span className="text-sm font-medium">{i18n.language === 'pt' ? 'PT' : 'ES'}</span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-24 p-1">
+            <DropdownMenuContent align="end" className="w-36 p-1">
               <DropdownMenuItem 
                 className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'pt' ? 'bg-ottiv-light/50' : ''}`} 
                 onClick={() => changeLanguage('pt')}
@@ -93,18 +93,18 @@ const NavBar: React.FC = () => {
             <DropdownMenuTrigger className="flex items-center text-ottiv-navy p-1">
               <Globe size={20} />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-24 p-1">
+            <DropdownMenuContent align="end" className="w-36 p-1">
               <DropdownMenuItem 
                 className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'pt' ? 'bg-ottiv-light/50' : ''}`} 
                 onClick={() => changeLanguage('pt')}
               >
-                <span className="mr-2">🇧🇷</span> PT
+                <span className="mr-2">🇧🇷</span> Português
               </DropdownMenuItem>
               <DropdownMenuItem 
                 className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'es' ? 'bg-ottiv-light/50' : ''}`}
                 onClick={() => changeLanguage('es')}
               >
-                <span className="mr-2">🇪🇸</span> ES
+                <span className="mr-2">🇪🇸</span> Español
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -117,7 +117,7 @@ const NavBar: React.FC = () => {
 
       {/* Mobile Navigation Menu */}
       <div 
-        className={`fixed inset-0 bg-white z-40 pt-20 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-white/95 backdrop-blur-lg z-40 pt-20 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden`}
       >

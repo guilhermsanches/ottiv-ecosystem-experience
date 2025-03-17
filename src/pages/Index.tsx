@@ -39,10 +39,10 @@ const Index = () => {
           description={t('ecosystemPillars.lab.description')}
           iconName={<Beaker className="w-5 h-5 text-ottiv-blue" />}
           features={[
-            "AI-driven data analysis and predictive modeling",
-            "Customizable machine learning algorithms",
-            "Rapid prototyping and testing environment",
-            "Integration with existing business systems"
+            t('ecosystemPillars.lab.feature1', 'AI-driven data analysis and predictive modeling'),
+            t('ecosystemPillars.lab.feature2', 'Customizable machine learning algorithms'),
+            t('ecosystemPillars.lab.feature3', 'Rapid prototyping and testing environment'),
+            t('ecosystemPillars.lab.feature4', 'Integration with existing business systems')
           ]}
           imagePosition="right"
           bgColor="bg-white"
@@ -56,10 +56,10 @@ const Index = () => {
           description={t('ecosystemPillars.crew.description')}
           iconName={<Users className="w-5 h-5 text-ottiv-blue" />}
           features={[
-            "Access to a network of industry specialists",
-            "Collaborative project development",
-            "Knowledge sharing and best practices",
-            "Ongoing support and mentorship"
+            t('ecosystemPillars.crew.feature1', 'Access to a network of industry specialists'),
+            t('ecosystemPillars.crew.feature2', 'Collaborative project development'),
+            t('ecosystemPillars.crew.feature3', 'Knowledge sharing and best practices'),
+            t('ecosystemPillars.crew.feature4', 'Ongoing support and mentorship')
           ]}
           imagePosition="left"
           bgColor="bg-ottiv-light"
@@ -75,10 +75,10 @@ const Index = () => {
           description={t('ecosystemPillars.data.description')}
           iconName={<Database className="w-5 h-5 text-ottiv-blue" />}
           features={[
-            "Real-time data processing and analysis",
-            "Interactive visualization dashboards",
-            "Predictive analytics and trend forecasting",
-            "Secure data storage and management"
+            t('ecosystemPillars.data.feature1', 'Real-time data processing and analysis'),
+            t('ecosystemPillars.data.feature2', 'Interactive visualization dashboards'),
+            t('ecosystemPillars.data.feature3', 'Predictive analytics and trend forecasting'),
+            t('ecosystemPillars.data.feature4', 'Secure data storage and management')
           ]}
           imagePosition="right"
           bgColor="bg-white"
@@ -92,10 +92,10 @@ const Index = () => {
           description={t('ecosystemPillars.flow.description')}
           iconName={<PackageCheck className="w-5 h-5 text-ottiv-blue" />}
           features={[
-            "Automated workflow management",
-            "Process optimization and efficiency tools",
-            "Custom integration with existing systems",
-            "Real-time performance monitoring"
+            t('ecosystemPillars.flow.feature1', 'Automated workflow management'),
+            t('ecosystemPillars.flow.feature2', 'Process optimization and efficiency tools'),
+            t('ecosystemPillars.flow.feature3', 'Custom integration with existing systems'),
+            t('ecosystemPillars.flow.feature4', 'Real-time performance monitoring')
           ]}
           imagePosition="left"
           bgColor="bg-ottiv-light"
