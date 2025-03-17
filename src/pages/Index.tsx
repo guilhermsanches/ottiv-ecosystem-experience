@@ -6,20 +6,22 @@ import EcosystemPillar from '../components/EcosystemPillar';
 import Testimonials from '../components/Testimonials';
 import CtaSection from '../components/CtaSection';
 import Footer from '../components/Footer';
-import { observeElements, initParallax } from '../lib/animations';
+import { initAllAnimations } from '../lib/animations';
 import { Beaker, Users, Database, PackageCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Index = () => {
-  useEffect(() => {
-    // Initialize animations when component mounts
-    observeElements();
-    initParallax();
+  const { t } = useTranslation();
 
+  useEffect(() => {
+    // Initialize all enhanced animations when component mounts
+    initAllAnimations();
+    
     // Re-initialize on window resize
-    window.addEventListener('resize', observeElements);
+    window.addEventListener('resize', initAllAnimations);
     
     return () => {
-      window.removeEventListener('resize', observeElements);
+      window.removeEventListener('resize', initAllAnimations);
     };
   }, []);
 
@@ -32,9 +34,9 @@ const Index = () => {
         
         <EcosystemPillar 
           id="lab"
-          title="LAB"
-          subtitle="Innovation & Research"
-          description="OTTIV LAB is our cutting-edge research and development hub where we experiment with emerging technologies to create innovative solutions for complex business challenges."
+          title={t('ecosystemPillars.lab.title')}
+          subtitle={t('ecosystemPillars.lab.subtitle')}
+          description={t('ecosystemPillars.lab.description')}
           iconName={<Beaker className="w-5 h-5 text-ottiv-blue" />}
           features={[
             "AI-driven data analysis and predictive modeling",
@@ -49,9 +51,9 @@ const Index = () => {
         
         <EcosystemPillar 
           id="crew"
-          title="CREW"
-          subtitle="Community & Collaboration"
-          description="OTTIV CREW connects businesses with expert consultants, developers, and industry leaders to foster collaboration and knowledge sharing within our thriving ecosystem."
+          title={t('ecosystemPillars.crew.title')}
+          subtitle={t('ecosystemPillars.crew.subtitle')}
+          description={t('ecosystemPillars.crew.description')}
           iconName={<Users className="w-5 h-5 text-ottiv-blue" />}
           features={[
             "Access to a network of industry specialists",
@@ -68,9 +70,9 @@ const Index = () => {
         
         <EcosystemPillar 
           id="data"
-          title="DATA"
-          subtitle="Analytics & Insights"
-          description="OTTIV DATA transforms raw information into actionable business intelligence through advanced analytics, visualization tools, and real-time monitoring systems."
+          title={t('ecosystemPillars.data.title')}
+          subtitle={t('ecosystemPillars.data.subtitle')}
+          description={t('ecosystemPillars.data.description')}
           iconName={<Database className="w-5 h-5 text-ottiv-blue" />}
           features={[
             "Real-time data processing and analysis",
@@ -85,9 +87,9 @@ const Index = () => {
         
         <EcosystemPillar 
           id="flow"
-          title="FLOW"
-          subtitle="Workflow Optimization"
-          description="OTTIV FLOW streamlines business processes through intelligent automation, custom workflow design, and integrated management tools that boost efficiency and productivity."
+          title={t('ecosystemPillars.flow.title')}
+          subtitle={t('ecosystemPillars.flow.subtitle')}
+          description={t('ecosystemPillars.flow.description')}
           iconName={<PackageCheck className="w-5 h-5 text-ottiv-blue" />}
           features={[
             "Automated workflow management",

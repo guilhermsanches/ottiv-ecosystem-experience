@@ -79,6 +79,7 @@
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
 
+  /* Enhanced button styles */
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-full bg-ottiv-blue text-white px-8 py-3 text-base font-medium 
            shadow-lg transition-all duration-300 ease-in-out 
@@ -93,6 +94,53 @@
            focus:outline-none focus:ring-2 focus:ring-ottiv-navy/20 focus:ring-offset-2;
   }
 
+  /* Advanced glow effect for CTAs */
+  .with-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .with-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-ottiv-blue/0 opacity-0 transition-all duration-300 rounded-full blur-xl;
+  }
+
+  .with-glow:hover::before {
+    @apply bg-ottiv-blue/30 opacity-100 -inset-1;
+  }
+
+  .with-hover-border {
+    @apply relative;
+  }
+
+  .with-hover-border::after {
+    content: '';
+    @apply absolute inset-0 rounded-full border-2 border-transparent transition-all duration-300;
+  }
+
+  .with-hover-border:hover::after {
+    @apply border-ottiv-blue/40 scale-105;
+  }
+
+  /* Navigation link underline animation */
+  .nav-link {
+    @apply relative inline-block;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute w-0 h-0.5 bg-ottiv-blue left-0 -bottom-1 transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Link hover animation effect */
+  .link-hover-effect {
+    animation: linkPulse 1s ease-out;
+  }
+
+  /* Section title with enhanced typography */
   .section-title {
     @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight;
   }
@@ -101,20 +149,32 @@
     @apply text-lg sm:text-xl text-ottiv-gray mb-12 max-w-3xl;
   }
 
+  /* Card styles with enhanced hover effects */
   .pillar-card {
     @apply relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-500 
-           hover:shadow-xl hover:-translate-y-1 hover:bg-gradient-to-br hover:from-white hover:to-ottiv-light;
+           hover:shadow-xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-ottiv-light;
   }
 
   .story-item {
     @apply relative overflow-hidden rounded-xl transition-all duration-300 transform cursor-default;
   }
 
+  /* Enhanced text gradient with more vibrant colors */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-ottiv-blue to-ottiv-green;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ottiv-blue via-ottiv-blue/80 to-ottiv-green;
+  }
+
+  /* Text glow effects */
+  .glow-text {
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.3), 0 0 20px rgba(33, 150, 243, 0.2);
+  }
+
+  .glow-text-sm {
+    text-shadow: 0 0 5px rgba(33, 150, 243, 0.4);
   }
 }
 
+/* Parallax background effect */
 .parallax-bg {
   background-attachment: fixed;
   background-position: center;
@@ -122,6 +182,7 @@
   background-size: cover;
 }
 
+/* Scroll reveal animations */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -133,6 +194,7 @@
   transform: translateY(0);
 }
 
+/* Enhanced background gradient animation */
 .bg-gradient-animate {
   background-size: 200% 200%;
   animation: gradient-shift 15s ease infinite;
@@ -143,7 +205,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with brand colors */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -159,4 +221,42 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0D1B2A;
+}
+
+/* Custom keyframe animations */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes linkPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float-vertical {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Add custom animations to Tailwind animation utilities */
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-float-vertical {
+  animation: float-vertical 6s ease-in-out infinite;
+}
+
+/* Input field focus state with glow effect */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  transition: box-shadow 0.3s ease;
 }
