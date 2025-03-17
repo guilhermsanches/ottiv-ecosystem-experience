@@ -1,0 +1,54 @@
+
+@layer components {
+  .ottiv-container {
+    @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Enhanced button styles with more responsive sizing */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ottiv-blue text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium 
+           shadow-lg transition-all duration-300 ease-in-out 
+           hover:bg-ottiv-blue/90 hover:shadow-ottiv-blue/20 hover:shadow-xl hover:-translate-y-0.5 
+           focus:outline-none focus:ring-2 focus:ring-ottiv-blue focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full bg-white text-ottiv-navy border border-ottiv-navy/10 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium 
+           shadow-sm transition-all duration-300 ease-in-out 
+           hover:bg-ottiv-navy/5 hover:shadow-md hover:-translate-y-0.5 
+           focus:outline-none focus:ring-2 focus:ring-ottiv-navy/20 focus:ring-offset-2;
+  }
+
+  /* Section title with enhanced typography and responsive sizes */
+  .section-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-base sm:text-lg text-ottiv-gray mb-8 sm:mb-12 max-w-3xl;
+  }
+
+  /* Card styles with enhanced hover effects */
+  .pillar-card {
+    @apply relative overflow-hidden rounded-2xl bg-white p-4 sm:p-6 shadow-lg transition-all duration-500 
+           hover:shadow-xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-white hover:to-ottiv-light;
+  }
+
+  .story-item {
+    @apply relative overflow-hidden rounded-xl transition-all duration-300 transform cursor-default;
+  }
+
+  /* Input field focus state with glow effect */
+  .field-focus {
+    @apply transition-all duration-300;
+    transform: translateY(-2px);
+  }
+}
