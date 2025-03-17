@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
+import { Zap, Globe, AtomIcon, Layers, Server, Code } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -37,25 +38,69 @@ const Hero: React.FC = () => {
 
     // Fixed visibility bug by ensuring animation starts properly
     setTimeout(animateElements, 100);
+    
+    // Parallax effect for icons
+    const handleMouseMove = (e: MouseEvent) => {
+      const icons = document.querySelectorAll('.parallax-icon');
+      const icons2 = document.querySelectorAll('.parallax-icon-reverse');
+      
+      icons.forEach((icon) => {
+        const speed = Number(icon.getAttribute('data-speed')) || 0.05;
+        const x = (window.innerWidth - e.pageX * speed) / 100;
+        const y = (window.innerHeight - e.pageY * speed) / 100;
+        
+        if (icon instanceof HTMLElement) {
+          icon.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        }
+      });
+      
+      icons2.forEach((icon) => {
+        const speed = Number(icon.getAttribute('data-speed')) || 0.08;
+        const x = (e.pageX * speed) / 100;
+        const y = (e.pageY * speed) / 100;
+        
+        if (icon instanceof HTMLElement) {
+          icon.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        }
+      });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Enhanced Background with animated gradient and SVG shapes */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-ottiv-light to-white bg-gradient-animate opacity-70 z-0"></div>
+      {/* Enhanced background with diagonal gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ottiv-light via-ottiv-light to-ottiv-blue/20 opacity-80 z-0"></div>
       
-      {/* SVG Background Elements instead of simple divs */}
-      <svg className="absolute top-20 right-10 w-64 h-64 animate-float" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="rgba(33, 150, 243, 0.05)" d="M45.7,-50.2C60.8,-34.4,75.5,-17.2,77.4,2.4C79.2,22,68.3,44.1,53.2,55.5C38.1,66.9,19.1,67.6,-0.5,68.1C-20,68.7,-40,69,-53.1,58.3C-66.3,47.5,-72.5,25.8,-70.6,5.5C-68.6,-14.8,-58.4,-29.5,-45.4,-45.3C-32.3,-61.1,-16.2,-77.9,0.5,-78.4C17.2,-78.9,34.3,-63.2,45.7,-50.2Z" transform="translate(100 100)" />
-      </svg>
+      {/* Parallax Icons */}
+      <div className="absolute top-20 right-10 w-10 h-10 text-ottiv-blue/30 parallax-icon" data-speed="0.05">
+        <Zap size={40} strokeWidth={1} />
+      </div>
       
-      <svg className="absolute bottom-20 left-10 w-48 h-48 animate-pulse-light" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <path fill="rgba(0, 230, 118, 0.05)" d="M48.6,-46.4C63.5,-29.7,76.4,-14.9,77.8,1.5C79.2,17.8,69.1,35.7,54.2,48.4C39.3,61.2,19.6,68.8,0.4,68.5C-18.9,68.2,-37.8,59.9,-51.3,46.3C-64.9,32.6,-73.1,13.3,-70.8,-3.3C-68.4,-19.9,-55.5,-33.7,-41.5,-50.3C-27.5,-66.9,-13.8,-86.3,0.5,-86.7C14.7,-87.2,29.4,-68.9,48.6,-46.4Z" transform="translate(100 100)" />
-      </svg>
+      <div className="absolute bottom-40 left-20 w-10 h-10 text-ottiv-green/30 parallax-icon" data-speed="0.08">
+        <Globe size={48} strokeWidth={1} />
+      </div>
       
-      <svg className="absolute top-1/3 left-1/4 w-32 h-32 animate-float" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style={{ animationDelay: '2s' }}>
-        <path fill="rgba(13, 27, 42, 0.05)" d="M43.3,-53.6C58.4,-39.8,74.4,-27.9,79.8,-12.1C85.2,3.8,80,22.6,69.4,36.9C58.8,51.1,42.8,60.8,26.4,65.6C10,70.3,-6.7,70.2,-23.6,66.1C-40.5,62,-57.6,54,-67.1,40.1C-76.6,26.2,-78.6,6.4,-73.8,-10.8C-69,-28.1,-57.5,-42.7,-43.5,-56.5C-29.6,-70.3,-14.8,-83.2,0,-83.2C14.8,-83.2,29.5,-63.2,43.3,-53.6Z" transform="translate(100 100)" />
-      </svg>
+      <div className="absolute top-40 left-40 w-8 h-8 text-ottiv-navy/30 parallax-icon-reverse" data-speed="0.06">
+        <AtomIcon size={32} strokeWidth={1} />
+      </div>
+      
+      <div className="absolute bottom-80 right-40 w-12 h-12 text-ottiv-blue/20 parallax-icon-reverse" data-speed="0.09">
+        <Layers size={48} strokeWidth={1} />
+      </div>
+      
+      <div className="absolute top-1/3 right-1/4 w-10 h-10 text-ottiv-green/30 parallax-icon" data-speed="0.07">
+        <Server size={40} strokeWidth={1} />
+      </div>
+      
+      <div className="absolute bottom-1/3 left-1/4 w-8 h-8 text-ottiv-navy/30 parallax-icon-reverse" data-speed="0.05">
+        <Code size={32} strokeWidth={1} />
+      </div>
       
       <div className="ottiv-container relative z-10">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6">

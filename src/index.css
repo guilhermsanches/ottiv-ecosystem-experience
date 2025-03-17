@@ -161,7 +161,7 @@
 
   /* Enhanced text gradient with more vibrant colors */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-ottiv-blue via-ottiv-blue/80 to-ottiv-green;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ottiv-blue via-ottiv-blue/90 to-ottiv-green;
   }
 
   /* Text glow effects */
@@ -177,6 +177,12 @@
   .field-focus {
     @apply transition-all duration-300;
     transform: translateY(-2px);
+  }
+  
+  /* Parallax icon animations */
+  .parallax-icon, .parallax-icon-reverse {
+    @apply transition-transform duration-300 ease-out;
+    will-change: transform;
   }
 }
 
