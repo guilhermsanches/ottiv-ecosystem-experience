@@ -4,6 +4,81 @@ import { initReactI18next } from 'react-i18next';
 
 // Language resources
 const resources = {
+  en: {
+    translation: {
+      nav: {
+        lab: 'OTTIV LAB',
+        crew: 'OTTIV CREW',
+        data: 'OTTIV DATA',
+        flow: 'OTTIV FLOW',
+        getStarted: 'Get Started'
+      },
+      hero: {
+        badge: 'Redefining Digital Solutions',
+        title: 'Transform Your Business with',
+        titleHighlight: 'OTTIV',
+        description: 'Unlock your business\'s full potential with our AI-powered ecosystem. OTTIV delivers innovative solutions that drive growth, efficiency, and innovation.',
+        primaryCta: 'Get Started',
+        secondaryCta: 'Explore OTTIV',
+        scrollText: 'Scroll to explore'
+      },
+      ecosystemPillars: {
+        lab: {
+          title: 'LAB',
+          subtitle: 'Innovation & Research',
+          description: 'OTTIV LAB is our cutting-edge research and development center, where we experiment with emerging technologies to create innovative solutions for complex business challenges.'
+        },
+        crew: {
+          title: 'CREW',
+          subtitle: 'Community & Collaboration',
+          description: 'OTTIV CREW connects businesses with expert consultants, developers, and industry leaders to foster collaboration and knowledge sharing within our thriving ecosystem.'
+        },
+        data: {
+          title: 'DATA',
+          subtitle: 'Analytics & Insights',
+          description: 'OTTIV DATA transforms raw information into actionable business intelligence through advanced analytics, visualization tools, and real-time monitoring systems.'
+        },
+        flow: {
+          title: 'FLOW',
+          subtitle: 'Workflow Optimization',
+          description: 'OTTIV FLOW optimizes business processes through intelligent automation, custom workflow design, and integrated management tools that boost efficiency and productivity.'
+        },
+        learnMore: 'Learn More'
+      },
+      testimonials: {
+        title: 'What Our Clients Say',
+        subtitle: 'Discover how OTTIV is transforming businesses worldwide'
+      },
+      cta: {
+        badge: 'Start Today',
+        title: 'Ready to Transform Your Business?',
+        description: 'Join innovative companies leveraging the OTTIV ecosystem to drive growth, efficiency, and competitive advantage.',
+        quickSetup: 'Quick Setup',
+        quickSetupDesc: 'Implementation in days, not months.',
+        growth: '30% Growth',
+        growthDesc: 'Average increase in efficiency.',
+        contactTitle: 'Contact Us',
+        submitButton: 'Send Message',
+        sending: 'Sending...'
+      },
+      form: {
+        name: 'Full Name',
+        email: 'Email Address',
+        company: 'Company',
+        message: 'Message',
+        placeholder: {
+          name: 'John Smith',
+          email: 'john@example.com',
+          company: 'Your Company',
+          message: 'Tell us about your project...'
+        }
+      },
+      toast: {
+        messageSent: 'Message Sent!',
+        messageDesc: 'Thank you for reaching out. We\'ll get back to you shortly.'
+      }
+    }
+  },
   pt: {
     translation: {
       nav: {
@@ -161,8 +236,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'pt', // Default language
-    fallbackLng: 'pt',
+    lng: 'en', // Default language changed to English
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false // React already escapes values
     }

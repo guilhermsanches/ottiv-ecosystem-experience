@@ -31,6 +31,16 @@ const NavBar: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
+  // Helper function to get language display name
+  const getLanguageDisplay = () => {
+    switch(i18n.language) {
+      case 'en': return 'EN';
+      case 'pt': return 'PT';
+      case 'es': return 'ES';
+      default: return 'EN';
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -63,9 +73,15 @@ const NavBar: React.FC = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center text-ottiv-navy hover:text-ottiv-blue transition-colors px-2 py-1 rounded-md">
               <Globe size={20} className="mr-1" />
-              <span className="text-sm font-medium">{i18n.language === 'pt' ? 'PT' : 'ES'}</span>
+              <span className="text-sm font-medium">{getLanguageDisplay()}</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-36 p-1">
+              <DropdownMenuItem 
+                className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'en' ? 'bg-ottiv-light/50' : ''}`} 
+                onClick={() => changeLanguage('en')}
+              >
+                <span className="mr-2">🇬🇧</span> English
+              </DropdownMenuItem>
               <DropdownMenuItem 
                 className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'pt' ? 'bg-ottiv-light/50' : ''}`} 
                 onClick={() => changeLanguage('pt')}
@@ -94,6 +110,12 @@ const NavBar: React.FC = () => {
               <Globe size={20} />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-36 p-1">
+              <DropdownMenuItem 
+                className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'en' ? 'bg-ottiv-light/50' : ''}`} 
+                onClick={() => changeLanguage('en')}
+              >
+                <span className="mr-2">🇬🇧</span> English
+              </DropdownMenuItem>
               <DropdownMenuItem 
                 className={`flex items-center px-3 py-2 text-sm cursor-pointer ${i18n.language === 'pt' ? 'bg-ottiv-light/50' : ''}`} 
                 onClick={() => changeLanguage('pt')}
